@@ -1,0 +1,16 @@
+fs= 1000;
+t= 0:1/fs:1-1/fs;
+C=3;
+F=6;
+A1= 54;
+A2=16;
+x1 = A1*cos(2*pi*3*100*t);
+x2 = A2*cos(2*pi*6*100*t);
+x3 = x1 + x2;
+fx1= fft(x3);
+fx1= fftshift(fx1)/(fs/2);
+f= fs/2*linspace(-1,1,fs);
+plot (f,abs(fx1));
+xlabel('Frequency');
+ylabel('Amplitude');
+title('Magnitude FFT of sine');

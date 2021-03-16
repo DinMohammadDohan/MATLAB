@@ -1,0 +1,15 @@
+V1=74;
+V2=3;
+FH=62;
+BG=75;
+AH=12;
+intensity=AH*0.01;
+fs=10000;
+t=0:1/fs:1-1/fs;
+x=V1*sin(2*pi*(FH*100)*t)+V2*sin(2*pi*(BG*100)*t)+intensity*randn(size(t));
+noise=intensity*randn(size(t));
+s_power=(V1^2)/2+(V2^2)/2;
+n_power=intensity^2;
+SNR=snr(x) 
+noise=intensity
+defSNR= 10*log10 (s_power/n_power)

@@ -1,0 +1,10 @@
+fs=10000;
+ t=-0.01:1/fs:0.01;
+ C=3;
+ F=6;
+ A1=38;
+ A2=16;
+ x1 = A1*cos(2*pi*C*100*t);
+ x2 = A2*cos(2*pi*F*100*t);
+ x3= x1+x2;
+ bandwidth=obw(x3,fs)

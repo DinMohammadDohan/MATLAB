@@ -1,0 +1,20 @@
+fs=40e3;
+fc=4e3;
+t=0:1/fs:0.001;
+x=0.5*sin(2*pi*fc*t);
+n=8;
+L=(2^n)-1;
+delta=(max(x)-min(x))/L;
+binaryvalue=dec2bin(round((x-min(x))/delta),n)
+y=min(x)+(round((x-min(x))/delta)).*delta;
+subplot(3,1,1);
+stem(t,x);
+subplot(3,1,2);
+stem(t,x);
+xlabel('time(s)')
+ylabel('X[n]')
+subplot(3,1,3);
+stairs(t,y);
+title('Quantized Signal')
+xlabel('time')
+ylabel('amplitude')
